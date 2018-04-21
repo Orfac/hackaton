@@ -1,2 +1,6 @@
-a = 5
-b = 3
+def main():
+    print('asd')
+
+
+if __name__ == "__main__":
+    main()
