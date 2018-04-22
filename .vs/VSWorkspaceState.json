@@ -3,8 +3,12 @@
     "",
     "\\ifps",
     "\\Server",
-    "\\Server\\KYCServer"
+    "\\Server\\KYCServer",
+    "\\venv",
+    "\\venv\\Lib",
+    "\\venv\\Lib\\site-packages",
+    "\\venv\\Lib\\site-packages\\crypto"
   ],
-  "SelectedNode": "\\Server\\KYCServer\\KYCServer.py",
+  "SelectedNode": "\\crypt.py",
   "PreviewInSolutionExplorer": false
 }

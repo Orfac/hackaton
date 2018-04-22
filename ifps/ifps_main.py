@@ -22,6 +22,8 @@ def send_to_ipfs(json_f):
 
 
 def get_from_ipfs(hash):
-   return api.get(hash)
+    transport_hash = from_hash_to_ipfs(hash)
+    return api.get(transport_hash)
+
 
 
