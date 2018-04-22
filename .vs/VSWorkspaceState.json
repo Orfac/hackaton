@@ -4,10 +4,9 @@
     "\\ifps",
     "\\Server",
     "\\Server\\KYCServer",
-    "\\venv",
-    "\\venv\\Lib\\site-packages",
-    "\\venv\\Lib\\site-packages\\crypto"
+    "\\venv\\Lib",
+    "\\venv\\Lib\\site-packages"
   ],
-  "SelectedNode": "\\crypt.py",
+  "SelectedNode": "\\ifps_main.py",
   "PreviewInSolutionExplorer": false
 }
