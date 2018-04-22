@@ -1,5 +1,6 @@
-import crypto.PublicKey.RSA
+import
 import random
+
 
 def generate_keys():
     # module_length кратен 256 и больше 1024
