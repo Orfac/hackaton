@@ -16,11 +16,10 @@ def connection_to_ipfs_net():
 
 def send_to_ipfs(json_f):
     api = connection_to_ipfs_net()
-    with open('data.txt','w') as outline:
-        json.dump(json_f, outline)
-
-    res = api.add('data.txt')
     
+
+    res = api.add('test.txt')
+    print(len(res['Hash']))
     return from_ipfs_to_hash(res['Hash'])
 
 
