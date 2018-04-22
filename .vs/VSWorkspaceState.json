@@ -5,7 +5,6 @@
     "\\Server",
     "\\Server\\KYCServer",
     "\\venv",
-    "\\venv\\Lib",
     "\\venv\\Lib\\site-packages",
     "\\venv\\Lib\\site-packages\\crypto"
   ],
