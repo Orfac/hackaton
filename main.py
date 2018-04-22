@@ -1,3 +1,4 @@
+from indy import a
 def main():
     print('asd')
 
