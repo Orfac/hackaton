@@ -1,8 +1,12 @@
 import ipfsapi
-import  json
+import json
+
 
 def from_ipfs_to_hash(hash34):
-    return hash34.encode('utf-8')[2:]
+    byte32array = bytearray(hash34, 'utf-8')
+    byte32array.pop(0)
+    byte32array.pop(0)
+    return list(byte32array)
 
 
 def from_hash_to_ipfs(hash32):
@@ -15,12 +19,9 @@ def connection_to_ipfs_net():
     return ipfsapi.connect('https://ipfs.infura.io', 5001)
 
 
-def send_to_ipfs(json_f):
+def send_to_ipfs(path):
     api = connection_to_ipfs_net()
-    with open('data.txt','w') as outline:
-        json.dump(json_f, outline)
-
-    res = api.add(outline)
+    res = api.add(path)
     return from_ipfs_to_hash(res['hash'])
 
 

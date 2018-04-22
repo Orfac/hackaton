@@ -7,7 +7,7 @@ def generate_keys():
 
 
 def encrypt_message(a_message, publickey):
-    crypto = rsa.encrypt(a_message, publickey)
+    crypto = rsa.encrypt(a_message, publickey).__str__()
     return crypto
 
 

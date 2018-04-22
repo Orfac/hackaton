@@ -6,10 +6,10 @@ import RestApi
 
 def send_json(message,public_key):
     encoding_message = encrypt_message(message, public_key)
-
-    send_to_ipfs(
-        json.dumps({"message": str(encoding_message)})
-        )
+    f = open('enc_file.txt', 'w')
+    f.write(encoding_message)
+    f.close()
+    send_to_ipfs('enc_file.txt')
 
 
 def get_json(hash, private_key):
