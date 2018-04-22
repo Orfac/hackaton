@@ -1,7 +1,6 @@
 import crypto.PublicKey.RSA
 import random
 
-
 def generate_keys():
     # module_length кратен 256 и больше 1024
     module_length = 256 * 16

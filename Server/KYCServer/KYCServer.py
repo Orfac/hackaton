@@ -1,36 +1,19 @@
 import flask
+from flask import Flask, request, jsonify, Response
 import json
-import postgresql
-import uuid
+from ledger import *
 
-app = flask.Flask(__name__)
-
-def create_db():
-    db.execute("CREATE TABLE (id SERIAL PRIMARY KEY, public_key not null varchar(40) Unique, hash varchar(40) not null Unique)")
-
-def db_conn():
-    return postgresql.open('pq://eax@localhost/eax')
+app = Flask(__name__)
 
 def to_json(data):
     return json.dumps(data) + "\n"
 
 def resp(code, data):
-    return flask.Response(
+    return Response(
         status=code,
         mimetype="applicataion/json",
         response=to_json(data)
         )
-
-def did_validate():
-    errors = []
-    json = flask.request.get_json()
-    if json is None:
-        errors.append(
-            "No JSON sent. Did you forget to set Content-Type header" +
-            " to application/json?")
-        return (None, errors)
-
-    return (json, errors)
 
 def affected_num_to_code(cnt):
     code = 200
@@ -51,26 +34,15 @@ def page_not_found(e):
 def page_not_found(e):
     return resp(405, {})
 
-@app.route('/api/1.0/newDid', methods=['GET'])
-def get_did():
-    
-    return resp(200, {"did": str(uuid.uuid4())})
+@app.route('/api/1.0/new', methods=['POST'])
+def get_file():
+    content = request.json
+    add_transaction(content['public_key'],
+                   content['public_key_ico'],
+                   content['hash'])
 
-@app.route('/api/1.0/', methods=['POST'])
-def post_theme():
-    (json, errors) = theme_validate()
-    if errors:  # list is not empty
-        return resp(400, {"errors": errors})
-
-    with db_conn() as db:
-        insert = db.prepare(
-            "INSERT INTO themes (title, url) VALUES ($1, $2) " +
-            "RETURNING id")
-        [(theme_id,)] = insert(json['title'], json['url'])
-        return resp(200, {"theme_id": theme_id})
-
+    return resp(200, "OK")
 
 if __name__ == '__main__':
     app.debug = True  # enables auto reload during development
-    create_db()
     app.run()
