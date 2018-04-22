@@ -1,7 +1,7 @@
 import json
 from crypt import encrypt_message, decrypt_message
 from ifps_main import send_to_ipfs, get_from_ipfs
-import restApi
+import RestApi
 
 
 def send_json(message,public_key):
