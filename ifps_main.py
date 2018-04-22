@@ -1,5 +1,5 @@
 import ipfsapi
-
+import  json
 
 def from_ipfs_to_hash(hash34):
     return hash34.encode('utf-8')[2:]
@@ -17,7 +17,10 @@ def connection_to_ipfs_net():
 
 def send_to_ipfs(json_f):
     api = connection_to_ipfs_net()
-    res = api.add(json_f)
+    with open('data.txt','w') as outline:
+        json.dump(json_f, outline)
+
+    res = api.add(outline)
     return from_ipfs_to_hash(res['hash'])
 
 
