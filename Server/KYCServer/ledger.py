@@ -71,4 +71,12 @@ def add_transaction(public_key_sender, public_key_whom, file_hash):
     )
 
 
-add_transaction('asdasd', 'fgdgfdg', 'qwe12eqweqweqw')
+
+
+#index = get_index()
+#index.insert_one(
+#    {'values':0}
+#)
+
+
+#add_transaction('asdasd', 'fgdgfdg', 'qwe12eqweqweqw')

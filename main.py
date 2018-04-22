@@ -1,6 +1,9 @@
 import ipfsapi
 from RestApi import *
 
+from did import did
+
+
 def main():
     #add_transaction("asdas","asdas","asda")
     api = ipfsapi.connect('https://ipfs.infura.io', 5001)
