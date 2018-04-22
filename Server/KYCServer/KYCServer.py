@@ -34,6 +34,7 @@ def page_not_found(e):
 def page_not_found(e):
     return resp(405, {})
 
+
 @app.route('/api/1.0/new', methods=['POST'])
 def get_file():
     content = request.json
@@ -42,6 +43,7 @@ def get_file():
                    content['hash'])
 
     return resp(200, "OK")
+
 
 if __name__ == '__main__':
     app.debug = True  # enables auto reload during development
