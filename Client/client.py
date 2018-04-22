@@ -18,8 +18,13 @@ def auth():
     else:
         menu()
 
+
 def register():
     pass
+
+
 def menu():
-    print('1) Give permission to ICO/User')
+    print('1) Give permission to ICO/User\n'
+          '2) Logout\n')
+
     pass
