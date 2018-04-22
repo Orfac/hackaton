@@ -1,15 +1,16 @@
 import json
 from crypt import encrypt_message, decrypt_message
 from ifps_main import send_to_ipfs, get_from_ipfs
-import RestApi
+import restApi
 
 
 def send_json(message,public_key):
     encoding_message = encrypt_message(message, public_key)
-    f = open('enc_file.txt', 'w')
-    f.write(encoding_message)
-    f.close()
-    send_to_ipfs('enc_file.txt')
+
+    return send_to_ipfs(
+        json.dumps({"message": str(encoding_message)})
+        )
+
 
 
 def get_json(hash, private_key):
